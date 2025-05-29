@@ -1,5 +1,5 @@
 <x-layout>
-  <x-slot:header>Update </x-slot:header>
+  <x-slot:title>Update </x-slot>
         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <form method="POST" action="{{ route('todo.update',$todo->id) }}" class="mx-auto max-w-xl px-4 py-16">
           @method('PUT')
@@ -12,9 +12,7 @@
                 <div class="sm:col-span-4">
                   <label for="title" class="block text-sm/6 font-medium text-gray-900">Title</label>
                   <div class="mt-2">
-                    <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                      <input type="text" name="title" id="title" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" value="{{ $todo->title }}">
-                    </div>
+                    <x-input type="text" name="title" value="{{$todo->title}}"/>
                     <x-input_error name="title" />
                   </div>
                 </div>
@@ -37,9 +35,7 @@
                 <div class="sm:col-span-4">
                   <label for="due_date" class="block text-sm/6 font-medium text-gray-900">Due Date</label>
                   <div class="mt-2">
-                    <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                      <input type="date" name="due_date" id="due_date" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" value="{{ $todo->due_date }}">
-                    </div>
+                    <x-input type="date" name="due_date" value="{{$todo->due_date}}"/>
                     <x-input_error name="due_date" />
                   </div>
                 </div>

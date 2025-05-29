@@ -8,7 +8,11 @@
 </head>
 
 <body>
-  {{ $success }}
+  @if (session('success'))
+  <div class="mb-4 rounded bg-green-100 px-4 py-3 text-green-800">
+    {{ session('success') }}
+  </div>
+  @endif
   <form method="POST" action="{{ route('login') }}" class="mx-auto max-w-xl px-4 py-16">
     @csrf
     <div class="space-y-12">
@@ -19,9 +23,7 @@
           <div class="sm:col-span-4">
             <label for="email" class="block text-sm/6 font-medium text-gray-900">Username</label>
             <div class="mt-2">
-              <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                <input type="email" name="email" id="email" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="email">
-              </div>
+              <x-input type="email" name="email" />
               <x-input_error name="email" />
             </div>
           </div>
@@ -32,9 +34,7 @@
           <div class="sm:col-span-4">
             <label for="username" class="block text-sm/6 font-medium text-gray-900">Password</label>
             <div class="mt-2">
-              <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                <input type="password" name="password" id="password" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="email">
-              </div>
+              <x-input type="password" name="password" />
             </div>
           </div>
 
